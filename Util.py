@@ -20,7 +20,8 @@ def menuAlgoritmo():
                   "\n3 - Vigenere"
                   "\n4 - Substituicao"
                   "\n5 - Quebrar Cifra"
-                  "\n6 - Sair\n")
+                  "\n6 - Ataque Dicionario"
+                  "\n0 - Sair\n")
     return int(option)
 
 def menuOperacao():
@@ -33,3 +34,8 @@ def menuSubstituicao():
                   "\n2 - Descriptografar"
                   "\n3 - Gerar tabela\n")
     return int(option)
+
+from string import punctuation
+
+def unique_words(sentence):
+    return set(sentence.translate(None, punctuation).lower().split())

@@ -30,6 +30,15 @@ def criptCompare(inputFile, outputfile, key):
         idx += 1
     return True
 
+def decript2(inputFile, key):
+    outputText = ""
+
+    for i in range(0, len(inputFile)):
+        asciiCode = (ord(inputFile[i]) - key) % 256
+        outputText = outputText + unichr(asciiCode).encode('Latin-1')#chr(asciiCode)
+
+    return outputText
+
 def decript(fileName):
     key = int(Util.scan("Key: "))
     fileName = "saidaCriptCesar.txt"
