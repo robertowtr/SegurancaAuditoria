@@ -24,14 +24,14 @@ def cript(fileName):
         idx = deSimbolos.find(item)
         outputText += paraSimbolos[idx]
 
-    print(len(outputText))
-    print(len(inputFile))
-
-    Util.writeFile("./saida.txt", outputText)
+    #print(outputText)
+    #Util.writeFile("./saidaCriptSubs.txt", outputText)
+    return outputText
 
 def decript(fileName):
     deSimbolos = readParaSimbolos()
     paraSimbolos = readDeSimbolos()
+    fileName = "saidaCriptSubs.txt"
     inputFile = Util.scanFile(fileName)
 
     outputText = ""
@@ -39,7 +39,8 @@ def decript(fileName):
         idx = deSimbolos.find(item)
         outputText += paraSimbolos[idx]
 
-    Util.writeFile("./saida.txt", outputText)
+    print(outputText)
+    Util.writeFile("./saidaDecriptSubs.txt", outputText)
 
 
 def buildTable():
@@ -47,9 +48,6 @@ def buildTable():
     aux          = [chr(i) for i in xrange(0, 256)]
 
     paraSimbolos = [chr(i) for i in xrange(0, 256)]
-
-    print(len(deSimbolos))
-    print(len(paraSimbolos))
 
     symbols1 = ""
     symbols2 = ""
@@ -78,6 +76,7 @@ def readParaSimbolos():
     symbols = Util.scanFile(symbolsFile)
 
     paraSimbolos = ""
+
     for i in range(256, len(symbols)):
         paraSimbolos += symbols[i]
 

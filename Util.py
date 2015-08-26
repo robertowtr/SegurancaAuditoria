@@ -19,7 +19,8 @@ def menuAlgoritmo():
                   "\n2 - Transposicao"
                   "\n3 - Vigenere"
                   "\n4 - Substituicao"
-                  "\n5 - Sair\n")
+                  "\n5 - Quebrar Cifra"
+                  "\n6 - Sair\n")
     return int(option)
 
 def menuOperacao():
@@ -32,7 +33,3 @@ def menuSubstituicao():
                   "\n2 - Descriptografar"
                   "\n3 - Gerar tabela\n")
     return int(option)
-
-def readInput():
-    fileName = scan("\nInforme o nome do arquivo de entrada (<nome_arquivo.extensão>)")
-    return fileName
