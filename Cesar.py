@@ -17,8 +17,6 @@ def cript(fileName, key):
         asciiCode = (ord(inputFile[i]) + key) % 256
         outputText = outputText + unichr(asciiCode).encode('Latin-1')#chr(asciiCode)
 
-    #print(outputText)
-    #Util.writeFile("./saidaCriptCesar.txt", outputText)
     return outputText
 
 def criptCompare(inputFile, outputfile, key):

@@ -12,10 +12,10 @@ def quebrarCifra(nomeArquivo):
     if not quebrou:
         quebrou = trySubstituicao(nomeEntrada, nomeSaida)
     if not quebrou:
-        quebrou = tryVigenere2(nomeEntrada, nomeSaida)
+        #quebrou = tryVigenere(nomeEntrada, nomeSaida)
+        quebrou = tryTransposicao(nomeEntrada, nomeSaida)
     if not quebrou:
-        quebrou = tryVigenere2(nomeEntrada, nomeSaida)
-        #quebrou = tryTransposicao(nomeEntrada, nomeSaida)
+        quebrou = tryTransposicao(nomeEntrada, nomeSaida)
     if not quebrou:
         print("Nao foi possivel quebrar a cifra")
 

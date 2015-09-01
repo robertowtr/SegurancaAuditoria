@@ -1,5 +1,6 @@
 import Util
-
+import itertools
+import math
 
 def start(fileName):
     option = Util.menuOperacao()
@@ -92,3 +93,28 @@ def decript(fileName):
 
     print(outputText)
     Util.writeFile("./saidaDecriptVigenere.txt", outputText)
+
+
+def decript2(inputFile, key):
+    lenKey = len(key)
+    i = 0
+    idx = 0
+    outputText = ""
+    for item in inputFile:
+        if i == lenKey:
+            i = 0
+        asciiCode = (ord(item) - ord(key[i])) % 256
+        outputText = outputText + unichr(asciiCode).encode('Latin-1')#chr(asciiCode)
+        i += 1
+        idx += 1
+    return outputText
+
+def decript3(inputFile, key):
+    output = []
+    #key = key * ((len(inputFile)/len(key)) +1)
+    key = itertools.cycle(key)
+    #for i in range(1, len(inputFile)):
+    for (a,b) in zip(key, inputFile):
+        asciiCode = (ord(b) - ord(a)) % 256
+        output.append(chr(asciiCode))
+    return ''.join(output)

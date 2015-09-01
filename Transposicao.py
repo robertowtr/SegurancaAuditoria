@@ -47,7 +47,7 @@ def decript(fileName):
 
     matrix = []
     columns  = []
-    lines = len(inputFile) / key;
+    lines = len(inputFile) / key
 
     idx = 0
     for item in inputFile:
@@ -67,3 +67,28 @@ def decript(fileName):
             outputText += j
     print(outputText)
     Util.writeFile("./saidaCriptTransp.txt", outputText)
+
+def decript2(inputFile, key):
+    outputText = ""
+
+    matrix = []
+    columns  = []
+    lines = len(inputFile) / key
+
+    idx = 0
+    for item in inputFile:
+        if idx < lines:
+            columns.append(item)
+        else:
+            matrix.append(columns)
+            idx = 0
+            columns = []
+            columns.append(item)
+        idx +=1
+
+    matrix.append(columns)
+    transp = zip(*matrix)
+    for i in transp:
+        for j in i:
+            outputText += j
+    return outputText
