@@ -8,14 +8,14 @@ def quebrarCifra(nomeArquivo):
     nomeEntrada = "./inputs/" + nomeArquivo
     nomeSaida = "./outputs/" + nomeArquivo +  ".enc"
 
-    quebrou = tryCesarCompare(nomeEntrada, nomeSaida)
-    if not quebrou:
-        quebrou = trySubstituicao(nomeEntrada, nomeSaida)
-    if not quebrou:
+    #quebrou = tryCesarCompare(nomeEntrada, nomeSaida)
+    #if not quebrou:
+     #   quebrou = trySubstituicao(nomeEntrada, nomeSaida)
+    #if not quebrou:
         #quebrou = tryVigenere(nomeEntrada, nomeSaida)
-        quebrou = tryTransposicao(nomeEntrada, nomeSaida)
-    if not quebrou:
-        quebrou = tryTransposicao(nomeEntrada, nomeSaida)
+    quebrou = tryTransposicao(nomeEntrada, nomeSaida)
+    #if not quebrou:
+     #   quebrou = tryTransposicao(nomeEntrada, nomeSaida)
     if not quebrou:
         print("Nao foi possivel quebrar a cifra")
 
