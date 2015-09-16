@@ -16,8 +16,8 @@ def startAttack(nomeArquivo):
     inputFile = Util.scanFile(nomeEntrada)
     dicionario = Util.scanFile(nomeDicionario)
 
-    #tryCesar(inputFile, dicionario)
-    tryTransposicao(inputFile, dicionario)
+    tryCesar(inputFile, dicionario)
+    #tryTransposicao(inputFile, dicionario)
     #tryVigenere(inputFile, dicionario)
     #print(descrMelhorIndice)
 
@@ -105,31 +105,31 @@ def tryVigenere(input_file, dicionario):
 
 def try_substituicao(input_file, dicionario):
     l1 = Util.get_count_list(Util.get_string_combination_letters(input_file, 3))
+    #l1 = Util.get_string_combination_letters3(input_file, 3)
     l2 = Util.get_count_list(Util.get_string_combination_letters(dicionario, 3))
+    #l2 = Util.get_string_combination_letters3(dicionario, 3)
     l = Util.get_compared_lists(l1, l2)
 
-    print(l1)
-    print(l2)
-    print(l)
     result = [[]]
     for i in l:
         for a, b in zip(i[0], i[1]):
             result.append((a, b))
 
-    tabela = [["" for i in range(0, 2)] for x in range(0, 256)]
+    t = ["" for i in range(0, 256)]
 
     for i in range(1, len(result)):
-        if tabela[ord(result[i][0])][0] == "":
-            tabela[ord(result[i][0])][0] = result[i][0]
-            tabela[ord(result[i][0])][1] = result[i][1]
+        if t[ord(result[i][0])] == "":
+            t[ord(result[i][0])] = result[i][1]
 
     output = ""
     for i in input_file:
-        output += tabela[ord(i)][1]
+        output += t[ord(i)]
 
     Util.writeFile("./saida.txt", output)
-    #print(tabela)
     return output
+
+
+
 
 
 str1 = Util.scanFile("./outputs/pg74.txt.enc")

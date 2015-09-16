@@ -48,6 +48,33 @@ def unique_words(sentence):
 
 def get_string_combination_letters(string, size):
     result = []
+    m = []
+    while size > 0:
+        limit = len(string) - size + 1
+        for i in range(0, limit):
+            result.append(string[i:i+size])
+        size -= 1
+        for i in result:
+            m.append(i)
+    return result
+
+
+def get_string_combination_letters3(string, size):
+    result = []
+    m = []
+    while size > 0:
+        limit = len(string) - size + 1
+        for i in range(0, limit):
+            result.append(string[i:i+size])
+        size -= 1
+        z = Counter(result)
+        for i in range(0, len(z)):
+            m.append(z[i])
+    return m
+
+
+def get_string_combination_letters2(string, size):
+    result = []
     limit = len(string) - size + 1
     for i in range(0, limit):
         result.append(string[i:i+size])
@@ -65,3 +92,29 @@ def get_compared_lists(_list1, _list2):
     for a, b in zip(_list1, _list2):
         _ret.append((a[1], b[1]))
     return _ret
+
+
+def get_word_pattern(word):
+    output = ""
+    actual = 1
+    for i in range(0, len(word)):
+        idx = word.index(word[i])
+        if idx >= i:
+            idx = -1
+        if idx == -1:
+            output += str(actual)
+            actual += 1
+        else:
+            output += output[idx]
+    return output
+
+
+def get_text_words_pattern(text):
+    l1 = get_count_list(get_string_combination_letters(text, 1))
+    l2 = text.split(l1.most_common()[0][0])
+
+
+    #print "-"+str(caracter_quebra)+ "-"
+
+
+get_text_words_pattern("banco kx ll p")
