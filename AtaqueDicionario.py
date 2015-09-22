@@ -3,7 +3,6 @@ import Cesar
 import Transposicao
 import itertools
 import Vigenere
-import datetime
 
 melhorIndice = 0
 descrMelhorIndice = "Sem"
@@ -129,19 +128,56 @@ def try_substituicao(input_file, dicionario):
     return output
 
 
+def try_substituicao_escuro():
+    str1 = Util.scanFile("./outputs/pg74.txt.enc")
+    str2 = Util.scanFile("./books/livros.txt")
+    #str2 = Util.scanFile("./inputs/pg74.txt")
+    '''uniqueTextWords = Util.unique_words(try_substituicao(str1, str2))
+    dicionario = Util.unique_words(Util.scanFile("./inputs/dictionary.txt"))
+    #print(try_substituicao(str1, str2))
+    count = len(uniqueTextWords & dicionario)
+    perc = count*100/len(uniqueTextWords)
+
+    print("\nAlgoritmo de Substituicao - Livros"
+            "\nTotal de palavras: " + str(len(uniqueTextWords)) +
+            "\nTotal de palavras encontradas: " + str(count) +
+            "\n" + str(perc) + "% de acerto")
+
+    str2 = Util.scanFile("./inputs/pg74.txt")
+    uniqueTextWords = Util.unique_words(try_substituicao(str1, str2))
+    dicionario = Util.unique_words(Util.scanFile("./inputs/dictionary.txt"))
+    #print(try_substituicao(str1, str2))
+    count = len(uniqueTextWords & dicionario)
+    perc = count*100/len(uniqueTextWords)
+
+    print("\nAlgoritmo de Substituicao - Texto claro"
+            "\nTotal de palavras: " + str(len(uniqueTextWords)) +
+            "\nTotal de palavras encontradas: " + str(count) +
+            "\n" + str(perc) + "% de acerto")
+
+'''
+
+    #str2 = Util.scanFile("./books/livros.txt")
+    dicionario = Util.get_unique_words_and_patterns(Util.get_text_words_pattern(str2))
+    #escape = Util.get_most_common_char(str1)
+    #texto_escuro = Util.get_unique_words_and_patterns(Util.get_text_words_pattern(str1.replace(escape, " ")))
+
+    print dicionario
+
+    saida = []
+
+    '''for i in range(1, len(texto_escuro)):
+        for j in range(1, len(dicionario)):
+            if dicionario[i][1] == texto_escuro[j][1]:
+                saida.append(dicionario[i][0])
+                print dicionario[i][1] + " " + dicionario[i][0]
+'''
+    #print saida
+    #print(dicionario)
+    #print texto_escuro
 
 
 
-str1 = Util.scanFile("./outputs/pg74.txt.enc")
-str2 = Util.scanFile("./books/livros.txt")
-#str2 = Util.scanFile("./inputs/pg74.txt")
-uniqueTextWords = Util.unique_words(try_substituicao(str1, str2))
-dicionario = Util.unique_words(Util.scanFile("./inputs/dictionary.txt"))
-#print(try_substituicao(str1, str2))
-count = len(uniqueTextWords & dicionario)
-perc = count*100/len(uniqueTextWords)
 
-print("\nAlgoritmo de Substituicao"
-        "\nTotal de palavras: " + str(len(uniqueTextWords)) +
-        "\nTotal de palavras encontradas: " + str(count) +
-        "\n" + str(perc) + "% de acerto")
+
+try_substituicao_escuro()

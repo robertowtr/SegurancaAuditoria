@@ -1,4 +1,5 @@
 from collections import Counter
+from __builtin__ import dict
 
 
 def scan(message):
@@ -111,10 +112,48 @@ def get_word_pattern(word):
 
 def get_text_words_pattern(text):
     l1 = get_count_list(get_string_combination_letters(text, 1))
-    l2 = text.split(l1.most_common()[0][0])
+    l2 = [[]]
+    for word in text.split(l1.most_common()[0][0]):
+        l2.append((word, get_word_pattern(word)))
+    return l2
 
 
-    #print "-"+str(caracter_quebra)+ "-"
+def get_unique_words_and_patterns(k):
+    padroes_utilizados = ""
+    list_remocao = []
+    palavras = [[]]
+    for i in range(1, len(k)):
+        if k[i][1] + " " not in padroes_utilizados:
+            palavras.append((k[i][0], k[i][1]))
+            padroes_utilizados += " " + k[i][1]
+        else:
+            list_remocao.append(k[i][1] + " ")
+
+    final = [[]]
+    for item in list_remocao:
+        for i in range(1, len(palavras)):
+            #print(item + " " + palavras[i][1])
+            if item.strip() != palavras[i][1].strip():
+                final.append(palavras[i])
+
+    return final
 
 
-get_text_words_pattern("banco kx ll p")
+def get_most_common_char(string):
+    return Counter(string).most_common()[0][0]
+
+'''dicionario = get_unique_words_and_patterns(get_text_words_pattern("bancon kx ll p zz"))
+escape = get_most_common_char("jzphfp5yw5ee5a5ii")
+texto_escuro = get_unique_words_and_patterns(get_text_words_pattern("jzphfp5yw5ee5a5ii".replace(escape, " ")))
+
+
+saida = []
+
+for i in range(1, len(texto_escuro)):
+    for j in range(1, len(dicionario)):
+        if dicionario[i][1] == texto_escuro[j][1]:
+            saida.append(dicionario[i][0])
+
+print(dicionario)
+print texto_escuro
+'''
