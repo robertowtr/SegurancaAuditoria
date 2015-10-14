@@ -40,7 +40,7 @@ def decript(fileName):
         outputText += paraSimbolos[idx]
 
     print(outputText)
-    Util.writeFile("./saidaDecriptSubs.txt", outputText)
+    Util.writeFile("./saidaTrabalho5.txt", outputText)
 
 
 def buildTable():
@@ -81,3 +81,15 @@ def readParaSimbolos():
         paraSimbolos += symbols[i]
 
     return paraSimbolos
+
+def decriptT5(inputFile):
+    deSimbolos = readParaSimbolos()
+    paraSimbolos = readDeSimbolos()
+
+    outputText = ""
+    for item in inputFile:
+        idx = deSimbolos.find(item)
+        outputText += paraSimbolos[idx]
+
+    return outputText
+

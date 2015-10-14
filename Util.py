@@ -130,19 +130,27 @@ def get_unique_words_and_patterns(k):
             list_remocao.append(k[i][1] + " ")
 
     final = [[]]
-    for item in list_remocao:
+    final = palavras
+    '''for item in list_remocao:
         for i in range(1, len(palavras)):
             #print(item + " " + palavras[i][1])
             if item.strip() != palavras[i][1].strip():
-                final.append(palavras[i])
+                final.append(palavras[i])'''
 
     return final
 
 
 def get_most_common_char(string):
     return Counter(string).most_common()[0][0]
+str2 = scanFile("./books/livros.txt")
 
-'''dicionario = get_unique_words_and_patterns(get_text_words_pattern("bancon kx ll p zz"))
+'''print "1"
+dicionario = get_text_words_pattern(str2[0:4000])
+print "2"
+dicionario1 = get_unique_words_and_patterns(dicionario)
+print "3"
+
+#print(dicionario)
 escape = get_most_common_char("jzphfp5yw5ee5a5ii")
 texto_escuro = get_unique_words_and_patterns(get_text_words_pattern("jzphfp5yw5ee5a5ii".replace(escape, " ")))
 
